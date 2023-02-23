@@ -1,8 +1,8 @@
 package conta;
 
 import java.util.Scanner;
+
 import conta.util.cores;
-import conta.model.Conta;
 import conta.model.ContaCorrente;
 import conta.model.ContaPoupanca;
 
@@ -11,13 +11,6 @@ public class menu {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		// Teste da Classe Conta
-		Conta c1 = new Conta(1, 123, 1, "Tay", 10000.0f);
-		c1.view();
-		c1.withdrawMoney(12000.0f);
-		c1.view();
-		c1.deposit(5000.0f);
-		c1.view();
 
 		// Teste da Classe Conta Corrente
 		ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Juriscreine", 15000.0f, 1000.0f);
