@@ -97,8 +97,8 @@ public abstract class Conta{
 		}
 		
 		System.out.println("\n\n----------------------------------------------------------");
-		System.out.println("Dados da Conta:");
-		System.out.println("-------------------------------------------------------------");
+		System.out.println("\t\tDados da Conta:");
+		System.out.println("----------------------------------------------------------");
 		System.out.println("Numero da Conta: " + this.number);
 		System.out.println("Agência: " + this.agency);
 		System.out.println("Tipo da Conta: " + type);
