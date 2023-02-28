@@ -15,9 +15,9 @@ public class menu {
 
 		ContaController contas = new ContaController();
 
-		int option = 0, number, agency, type, birthday;
+		int option = 0, number, agency, type, birthday, destinationNumber;
 		String titular;
-		float balance, limit;
+		float balance, limit, value;
 
 		Scanner read = new Scanner(System.in);
 
@@ -118,6 +118,7 @@ public class menu {
 				break;
 			case 3:
 				System.out.println("Buscar conta por número\n");
+
 				System.out.println("Digite o número da conta: ");
 				number = read.nextInt();
 
@@ -155,33 +156,71 @@ public class menu {
 						contas.update(new ContaPoupanca(number, agency, type, titular, balance, birthday));
 					}
 					}
-				} else 
+				} else
 					System.out.println("\n Conta não encontrada!");
-		
+
 				keyPress();
 				break;
 			case 5:
 				System.out.println("Deletar a conta\n");
-				
+
 				System.out.println("Digite o número da conta: ");
 				number = read.nextInt();
-				
+
 				contas.delete(number);
-				
+
 				keyPress();
 				break;
 			case 6:
 				System.out.println("Sacar\n");
+
+				System.out.println("Digite o número da conta: ");
+				number = read.nextInt();
+
+				do {
+					System.out.println("Digite o valor do saque (R$): ");
+					value = read.nextFloat();
+				} while (value <= 0);
+
+				contas.withdrawMoney(number, value);
+
 				keyPress();
 				break;
+
 			case 7:
 				System.out.println("Depositar\n");
+
+				System.out.println("Digite o número da conta: ");
+				number = read.nextInt();
+
+				do {
+					System.out.println("Digite o valor do saque (R$): ");
+					value = read.nextFloat();
+				} while (value <= 0);
+
+				contas.deposit(number, value);
+
 				keyPress();
 				break;
+
 			case 8:
 				System.out.println("Fazer trasnferência entre contas\n");
+
+				System.out.println("Digite o número da conta de origem: ");
+				number = read.nextInt();
+				System.out.println("Digite o número da conta de destino: ");
+				destinationNumber = read.nextInt();
+
+				do {
+					System.out.println("Digite o valor da tranferência (R$): ");
+					value = read.nextFloat();
+				} while (value <= 0);
+
+				contas.transfer(number, destinationNumber, value);
+
 				keyPress();
 				break;
+
 			default:
 				System.out.println(cores.TEXT_RED_BOLD + "Opção inválida!\n" + cores.TEXT_RESET);
 				keyPress();
